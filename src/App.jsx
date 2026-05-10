@@ -5,6 +5,9 @@ import HomePage from './pages/HomePage';
 import AnalyzerPage from './pages/AnalyzerPage';
 import KnowledgePage from './pages/KnowledgePage';
 import BestPracticesPage from './pages/BestPracticesPage';
+import EKGHealthPage from './pages/EKGHealthPage';
+import SNOPAdvisorPage from './pages/SNOPAdvisorPage';
+import TemplatesPage from './pages/TemplatesPage';
 
 export default function App() {
   return (
@@ -15,6 +18,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/analyzer" element={<AnalyzerPage />} />
+            <Route path="/ekg-health" element={<EKGHealthPage />} />
+            <Route path="/snop-advisor" element={<SNOPAdvisorPage />} />
+            <Route path="/templates" element={<TemplatesPage />} />
             <Route path="/knowledge" element={<KnowledgePage />} />
             <Route path="/best-practices" element={<BestPracticesPage />} />
           </Routes>
