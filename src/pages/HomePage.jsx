@@ -10,12 +10,12 @@ const features = [
   {
     icon: <BarChart3 size={22} />, color: 'indigo',
     title: 'Report Performance Analysis',
-    desc: 'Deep-dive analysis of report load times, calculation complexity, and rendering bottlenecks with actionable optimization paths.'
+    desc: 'Deep-dive analysis of load times, calculation complexity, and rendering bottlenecks with actionable optimization paths.'
   },
   {
     icon: <Layers size={22} />, color: 'violet',
     title: 'Hierarchy Optimization',
-    desc: 'Identify over-deep hierarchies, misaligned granularity, and redundant levels that slow down your EKG Graph Cube.'
+    desc: 'Identify over-deep hierarchies, misaligned granularity, and redundant levels slowing your EKG Graph Cube.'
   },
   {
     icon: <Gauge size={22} />, color: 'cyan',
@@ -40,10 +40,10 @@ const features = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i) => ({
     opacity: 1, y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: 'easeOut' }
+    transition: { delay: i * 0.08, duration: 0.45, ease: 'easeOut' }
   })
 };
 
@@ -55,12 +55,15 @@ export default function HomePage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           <div className="hero-badge">
-            <Sparkles size={14} /> AI-Powered Optimization Engine
+            <Sparkles size={13} /> AI-Powered Optimization Engine
           </div>
-          <h1>Optimize Your o9 Reports<br />for Maximum Performance</h1>
+          <h1>
+            Optimize Your o9 Reports<br />
+            for <span>Maximum Performance</span>
+          </h1>
           <p>
             Analyze, diagnose, and optimize your o9 Solutions reports with intelligent
             recommendations spanning hierarchy design, KPI strategy, calculation engines,
@@ -78,7 +81,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="section">
+      <section className="section" style={{ background: 'white' }}>
         <div className="page-wrapper">
           <div className="section-header">
             <h2>Comprehensive Optimization Toolkit</h2>
@@ -108,15 +111,15 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="section" style={{ textAlign: 'center' }}>
+      <section className="section" style={{ textAlign: 'center', background: 'var(--bg-primary)' }}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 style={{ marginBottom: 16 }}>Ready to Optimize?</h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: 480, margin: '0 auto 32px' }}>
+          <h2 style={{ marginBottom: 14, fontSize: '1.6rem', fontWeight: 700 }}>Ready to Optimize?</h2>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: 480, margin: '0 auto 28px', fontSize: '0.95rem' }}>
             Run a comprehensive analysis on any o9 report and get prioritized, actionable
             recommendations in seconds.
           </p>

@@ -39,7 +39,7 @@ export default function KnowledgePage() {
   });
 
   return (
-    <div className="section">
+    <div className="section" style={{ background: 'white', minHeight: '80vh' }}>
       <div className="page-wrapper">
         <div className="section-header">
           <h2>Optimization Knowledge Base</h2>
@@ -47,13 +47,9 @@ export default function KnowledgePage() {
         </div>
 
         {/* Search & Filters */}
-        <div style={{
-          display: 'flex', gap: 12, marginBottom: 32, flexWrap: 'wrap', alignItems: 'center'
-        }}>
-          <div style={{
-            flex: 1, minWidth: 280, position: 'relative'
-          }}>
-            <Search size={18} style={{
+        <div style={{ display: 'flex', gap: 12, marginBottom: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ flex: 1, minWidth: 280, position: 'relative' }}>
+            <Search size={17} style={{
               position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)',
               color: 'var(--text-muted)'
             }} />
@@ -63,9 +59,9 @@ export default function KnowledgePage() {
               value={search}
               onChange={e => setSearch(e.target.value)}
               style={{
-                width: '100%', padding: '12px 16px 12px 42px',
+                width: '100%', padding: '11px 16px 11px 42px',
                 borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)',
-                background: 'rgba(10,14,26,0.6)', color: 'var(--text-primary)',
+                background: 'var(--bg-input)', color: 'var(--text-primary)',
                 fontFamily: 'var(--font-sans)', fontSize: '0.9rem', outline: 'none'
               }}
             />
@@ -74,8 +70,8 @@ export default function KnowledgePage() {
             value={selectedCategory}
             onChange={e => setSelectedCategory(e.target.value)}
             style={{
-              padding: '12px 16px', borderRadius: 'var(--radius-sm)',
-              border: '1px solid var(--border-subtle)', background: 'rgba(10,14,26,0.6)',
+              padding: '11px 16px', borderRadius: 'var(--radius-sm)',
+              border: '1px solid var(--border-subtle)', background: 'var(--bg-input)',
               color: 'var(--text-primary)', fontFamily: 'var(--font-sans)', fontSize: '0.9rem',
               outline: 'none'
             }}
@@ -85,22 +81,18 @@ export default function KnowledgePage() {
           </select>
         </div>
 
-        {/* Results Count */}
-        <p style={{
-          fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 20
-        }}>
+        <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: 20, fontWeight: 500 }}>
           Showing {filtered.length} of {OPTIMIZATION_RULES.length} optimization rules
         </p>
 
-        {/* Cards */}
         <div className="card-grid">
           {filtered.map((rule, i) => (
             <motion.div
               key={rule.id}
               className="card"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05, duration: 0.3 }}
+              transition={{ delay: i * 0.04, duration: 0.3 }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
                 <div className={`card-icon ${categoryColors[rule.category] || 'indigo'}`}>
@@ -111,14 +103,14 @@ export default function KnowledgePage() {
                 </span>
               </div>
               <h3>{rule.title}</h3>
-              <p style={{ marginBottom: 12 }}>{rule.problem.substring(0, 120)}…</p>
+              <p style={{ marginBottom: 14 }}>{rule.problem.substring(0, 120)}…</p>
               <div style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                paddingTop: 12, borderTop: '1px solid var(--border-subtle)'
+                paddingTop: 14, borderTop: '1px solid var(--border-subtle)'
               }}>
                 <span style={{
                   fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase',
-                  letterSpacing: '0.5px'
+                  letterSpacing: '0.5px', fontWeight: 600
                 }}>
                   {rule.category}
                 </span>

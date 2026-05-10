@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Layers, Gauge, Wrench, Layout, Database, GitBranch,
-  ShieldCheck, ArrowRight, CheckCircle
+  ShieldCheck, CheckCircle
 } from 'lucide-react';
 
 const practices = [
@@ -87,7 +87,7 @@ const practices = [
 
 export default function BestPracticesPage() {
   return (
-    <div className="section">
+    <div className="section" style={{ background: 'white' }}>
       <div className="page-wrapper">
         <div className="section-header">
           <h2>o9 Report Best Practices</h2>
@@ -97,31 +97,28 @@ export default function BestPracticesPage() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {practices.map((practice, i) => (
             <motion.div
               key={i}
               className="card"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
+              transition={{ delay: i * 0.06, duration: 0.35 }}
               style={{ padding: 32 }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
-                <div className={`card-icon ${practice.color}`} style={{ width: 52, height: 52 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18 }}>
+                <div className={`card-icon ${practice.color}`} style={{ width: 50, height: 50 }}>
                   {practice.icon}
                 </div>
-                <h3 style={{ fontSize: '1.2rem' }}>{practice.title}</h3>
+                <h3 style={{ fontSize: '1.15rem' }}>{practice.title}</h3>
               </div>
-              <ul style={{
-                display: 'flex', flexDirection: 'column', gap: 12,
-                paddingLeft: 0, listStyle: 'none'
-              }}>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingLeft: 0, listStyle: 'none' }}>
                 {practice.tips.map((tip, j) => (
                   <li key={j} style={{
                     display: 'flex', alignItems: 'flex-start', gap: 10,
-                    fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6
+                    fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.65
                   }}>
                     <CheckCircle size={16} style={{
                       color: 'var(--accent-emerald)', flexShrink: 0, marginTop: 3

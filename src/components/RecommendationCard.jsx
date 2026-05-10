@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Wrench, Clock, TrendingUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Wrench, TrendingUp } from 'lucide-react';
 
 export default function RecommendationCard({ rule }) {
   const [expanded, setExpanded] = useState(false);
@@ -12,7 +12,7 @@ export default function RecommendationCard({ rule }) {
             {rule.severity}
           </span>
           <div>
-            <h3 style={{ fontSize: '0.95rem', fontWeight: 600 }}>{rule.title}</h3>
+            <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)' }}>{rule.title}</h3>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
               {rule.category}
             </span>
@@ -20,9 +20,11 @@ export default function RecommendationCard({ rule }) {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span className="impact-tag">
-            <TrendingUp size={12} /> {rule.impact}
+            <TrendingUp size={11} /> {rule.impact}
           </span>
-          {expanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+          {expanded
+            ? <ChevronUp size={18} color="var(--text-muted)" />
+            : <ChevronDown size={18} color="var(--text-muted)" />}
         </div>
       </div>
 
@@ -41,22 +43,22 @@ export default function RecommendationCard({ rule }) {
             ))}
           </ul>
 
-          <div style={{ display: 'flex', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 12, marginTop: 16, flexWrap: 'wrap' }}>
             <div style={{
               display: 'flex', alignItems: 'center', gap: 6,
-              padding: '6px 14px', borderRadius: 999,
-              background: 'rgba(99,102,241,0.1)', fontSize: '0.75rem', fontWeight: 600,
-              color: 'var(--accent-indigo)'
+              padding: '5px 14px', borderRadius: 999,
+              background: '#eef2ff', border: '1px solid #c7d2fe',
+              fontSize: '0.73rem', fontWeight: 600, color: 'var(--accent-indigo)'
             }}>
-              <Wrench size={13} /> Effort: {rule.effortLevel}
+              <Wrench size={12} /> Effort: {rule.effortLevel}
             </div>
             <div style={{
               display: 'flex', alignItems: 'center', gap: 6,
-              padding: '6px 14px', borderRadius: 999,
-              background: 'rgba(34,211,238,0.1)', fontSize: '0.75rem', fontWeight: 600,
-              color: 'var(--accent-cyan)'
+              padding: '5px 14px', borderRadius: 999,
+              background: 'var(--accent-emerald-light)', border: '1px solid #a7f3d0',
+              fontSize: '0.73rem', fontWeight: 600, color: 'var(--accent-emerald)'
             }}>
-              <TrendingUp size={13} /> {rule.impact}
+              <TrendingUp size={12} /> {rule.impact}
             </div>
           </div>
         </div>
