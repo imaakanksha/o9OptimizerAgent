@@ -744,3 +744,12 @@ ul, ol { list-style: none; }
   .navbar-links { display: none; }
   .card-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Analyzer Insights Grid Responsive ===== */
+@media (max-width: 900px) {
+  .stats-bar { grid-template-columns: 1fr 1fr !important; }
+}
+
+@media (max-width: 640px) {
+  .stats-bar { grid-template-columns: 1fr !important; }
+}
